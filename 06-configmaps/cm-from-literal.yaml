@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  country: US
+  gender: male
+  foo: bar
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: literal-example

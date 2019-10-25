@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  config.properties: |-
+    mysql_domain=10.100.32.15
+    mysql_user=root
+    mysql_password=root
+    mysql_database=test
+  country: US 
+  java.properties: |-
+    # this is a test file
+    # DO NOT EDIT
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: from-file
