@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: cm-busybox
+  name: cm-busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: cm-busybox
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: cm-busybox
+    spec:
+      containers:
+      - image: busybox
+        name: cm-busybox
+        command:
+        - /bin/sh
+        - -c
+        - "sleep 3600;"
+        volumeMounts:
+        - name: cm-test # how to only mount a file
+          mountPath: /country.txt
+          subPath: country
+        - name: cm-test  # how to mount a directory
+          mountPath: /app
+      volumes:
+      - name: cm-test
+        configMap:
+           name: from-file
+status: {}
