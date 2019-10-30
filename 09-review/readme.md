@@ -15,7 +15,7 @@ Save up all the yamls
 
 Part II
 
-create a deployment named platformer-demo using the image nilesh93/platformer-demo:latest
+create a deployment named platformer-demo using the image nilesh93/pxe-demo:latest
 container runs on port 8080
 
 expose the deployment as a service loadbalancer.
