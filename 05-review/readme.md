@@ -19,4 +19,11 @@ Solution:
 Part II
 
 Get the logs of the ghost pod into a text file called ghost-logs.txt
+
+kubectl logs ghost-797ffd5766-jmsgl -n ghost >ghost-logs.txt
+
+
 Run busybox:1.27 image and get the output of nslookup for the dns resolution of ghost service and the ghost pod into 2 files named ghost-pod-dns.txt and ghost-svc-dns.txt
+kubectl run -it busybox --image busybox:1.27 -n ghost --restart Never --rm -- /bin/sh
+kubectl run -it busybox --image busybox:1.27 -n ghost --restart Never --rm -- nslookup 10-8-0-3.ghost.pod > ghost-pod-dns.txt
+kubectl run -it busybox --image busybox:1.27 -n ghost --restart Never --rm -- nslookup ghost.ghost.svc >ghost-svc-dns.txt
