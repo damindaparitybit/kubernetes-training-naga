@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  foo: bar
+  name: naga
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-11-07T12:11:23Z"
+  name: sample-secret
+  namespace: training-naga
+  resourceVersion: "12246898"
+  selfLink: /api/v1/namespaces/training-naga/configmaps/sample-secret
+  uid: b72ea298-0157-11ea-a913-42010a8001ee

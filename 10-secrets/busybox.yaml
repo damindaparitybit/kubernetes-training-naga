@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: busybox
+  name: busybox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: busybox
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: busybox
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        volumeMounts:
+        - name: secret-file
+          mountPath: /secrets
+        env:
+        - name: FIRST_NAME
+          valueFrom:
+            secretKeyRef:
+              name: sample-secret
+              key: name
+        envFrom:
+        - secretRef:
+            name: sample-secret
+      volumes: 
+      - name: secret-file
+        secret: 
+         secretName: sample-secret
+status: {}

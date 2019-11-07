@@ -1,0 +1,50 @@
+{
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+            "run": "busybox"
+        },
+        "name": "busybox"
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "matchLabels": {
+                "run": "busybox"
+            }
+        },
+        "strategy": {},
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "run": "busybox"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "envFrom": [
+                            {
+                                "secretRef": {
+                                    "name": "sample-secret"
+                                }
+                            }
+                        ],
+                     
+                        "image": "busybox",
+                        "name": "buysbox",
+                        "volumeMounts": [
+                            {
+                                "name": "secret-file",
+                                "mountPath": "/secrets"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
